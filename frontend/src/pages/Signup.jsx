@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -18,7 +17,7 @@ function Signup() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/signup",
+        "https://civicai-7jnj.onrender.com/api/auth/signup",
         {
           method: "POST",
           headers: {
@@ -29,7 +28,7 @@ function Signup() {
             email: email,
             password: password,
           }),
-        }
+        },
       );
 
       const data = await response.json();
@@ -47,16 +46,10 @@ function Signup() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center px-6 py-12">
-
       <div className="w-full max-w-md">
-
         {/* Brand */}
         <div className="text-center mb-7">
-
-          <Link
-            to="/"
-            className="inline-flex items-center gap-3"
-          >
+          <Link to="/" className="inline-flex items-center gap-3">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl flex items-center justify-center text-2xl shadow-lg">
               🏙️
             </div>
@@ -71,42 +64,31 @@ function Signup() {
               </p>
             </div>
           </Link>
-
         </div>
-
 
         {/* Signup Card */}
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-9">
-
           {/* Heading */}
           <div className="text-center mb-8">
-
             <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
               👋
             </div>
 
-            <h2 className="text-3xl font-bold text-gray-800">
-              Create Account
-            </h2>
+            <h2 className="text-3xl font-bold text-gray-800">Create Account</h2>
 
             <p className="text-gray-500 mt-2">
               Join CivicAI and make your city better
             </p>
-
           </div>
 
-
           <form onSubmit={handleSignup}>
-
             {/* Name */}
             <div className="mb-5">
-
               <label className="block text-gray-700 font-semibold mb-2">
                 Full Name
               </label>
 
               <div className="relative">
-
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                   👤
                 </span>
@@ -119,21 +101,16 @@ function Signup() {
                   className="w-full border border-gray-200 bg-gray-50 rounded-xl pl-11 pr-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
                   required
                 />
-
               </div>
-
             </div>
-
 
             {/* Email */}
             <div className="mb-5">
-
               <label className="block text-gray-700 font-semibold mb-2">
                 Email Address
               </label>
 
               <div className="relative">
-
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                   ✉️
                 </span>
@@ -146,21 +123,16 @@ function Signup() {
                   className="w-full border border-gray-200 bg-gray-50 rounded-xl pl-11 pr-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
                   required
                 />
-
               </div>
-
             </div>
-
 
             {/* Password */}
             <div className="mb-5">
-
               <label className="block text-gray-700 font-semibold mb-2">
                 Password
               </label>
 
               <div className="relative">
-
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                   🔒
                 </span>
@@ -173,21 +145,16 @@ function Signup() {
                   className="w-full border border-gray-200 bg-gray-50 rounded-xl pl-11 pr-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
                   required
                 />
-
               </div>
-
             </div>
-
 
             {/* Confirm Password */}
             <div className="mb-7">
-
               <label className="block text-gray-700 font-semibold mb-2">
                 Confirm Password
               </label>
 
               <div className="relative">
-
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                   🔐
                 </span>
@@ -200,11 +167,8 @@ function Signup() {
                   className="w-full border border-gray-200 bg-gray-50 rounded-xl pl-11 pr-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
                   required
                 />
-
               </div>
-
             </div>
-
 
             {/* Signup Button */}
             <button
@@ -213,51 +177,36 @@ function Signup() {
             >
               Create CivicAI Account →
             </button>
-
           </form>
-
 
           {/* Divider */}
           <div className="flex items-center gap-3 my-7">
-
             <div className="flex-1 h-px bg-gray-200"></div>
 
-            <span className="text-xs text-gray-400">
-              OR
-            </span>
+            <span className="text-xs text-gray-400">OR</span>
 
             <div className="flex-1 h-px bg-gray-200"></div>
-
           </div>
-
 
           {/* Login */}
           <p className="text-center text-gray-500">
-
             Already have an account?{" "}
-
             <Link
               to="/login"
               className="text-blue-600 font-bold hover:text-indigo-700 hover:underline transition"
             >
               Login
             </Link>
-
           </p>
-
         </div>
-
 
         {/* Bottom Text */}
         <p className="text-center text-gray-400 text-sm mt-6">
           Join citizens working towards a better community. 🤝
         </p>
-
       </div>
-
     </div>
   );
 }
 
 export default Signup;
-

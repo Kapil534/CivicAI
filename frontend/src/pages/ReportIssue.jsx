@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 function ReportIssue() {
@@ -31,14 +30,14 @@ function ReportIssue() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/complaints",
+        "https://civicai-7jnj.onrender.com/api/complaints",
         {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
           },
           body: formData,
-        }
+        },
       );
 
       const data = await response.json();
@@ -67,12 +66,9 @@ function ReportIssue() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-10 px-6">
-
       <div className="max-w-3xl mx-auto">
-
         {/* Page Header */}
         <div className="text-center mb-8">
-
           <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl flex items-center justify-center text-3xl shadow-lg mx-auto mb-4">
             📝
           </div>
@@ -82,19 +78,15 @@ function ReportIssue() {
           </h1>
 
           <p className="text-gray-500 mt-3 max-w-xl mx-auto leading-6">
-            Found a civic problem in your area? Report it with
-            useful details and help make your community better.
+            Found a civic problem in your area? Report it with useful details
+            and help make your community better.
           </p>
-
         </div>
-
 
         {/* Form Card */}
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-7 md:p-9">
-
           {/* Card Heading */}
           <div className="flex items-center gap-3 pb-6 mb-7 border-b border-gray-100">
-
             <div className="w-11 h-11 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center text-xl">
               📋
             </div>
@@ -108,21 +100,16 @@ function ReportIssue() {
                 Provide accurate information about the issue.
               </p>
             </div>
-
           </div>
 
-
           <form onSubmit={handleSubmit}>
-
             {/* Title */}
             <div className="mb-6">
-
               <label className="block text-gray-700 font-semibold mb-2">
                 Issue Title
               </label>
 
               <div className="relative">
-
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                   📝
                 </span>
@@ -135,24 +122,17 @@ function ReportIssue() {
                   className="w-full border border-gray-200 bg-gray-50 rounded-xl pl-11 pr-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
                   required
                 />
-
               </div>
-
             </div>
-
 
             {/* Description */}
             <div className="mb-6">
-
               <label className="block text-gray-700 font-semibold mb-2">
                 Description
               </label>
 
               <div className="relative">
-
-                <span className="absolute left-4 top-4 text-gray-400">
-                  💬
-                </span>
+                <span className="absolute left-4 top-4 text-gray-400">💬</span>
 
                 <textarea
                   placeholder="Describe the problem in detail..."
@@ -162,21 +142,16 @@ function ReportIssue() {
                   className="w-full border border-gray-200 bg-gray-50 rounded-xl pl-11 pr-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition resize-none"
                   required
                 />
-
               </div>
-
             </div>
-
 
             {/* Category */}
             <div className="mb-6">
-
               <label className="block text-gray-700 font-semibold mb-2">
                 Category
               </label>
 
               <div className="relative">
-
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 z-10">
                   🏷️
                 </span>
@@ -197,24 +172,17 @@ function ReportIssue() {
                   <option value="Stray Animals">Stray Animals</option>
                   <option value="Other">Other</option>
                 </select>
-
               </div>
-
             </div>
-
 
             {/* Image */}
             <div className="mb-6">
-
               <label className="block text-gray-700 font-semibold mb-2">
                 Upload Image
               </label>
 
               <div className="border-2 border-dashed border-blue-200 bg-blue-50/50 rounded-2xl p-6 text-center hover:border-blue-400 transition">
-
-                <div className="text-4xl mb-3">
-                  📷
-                </div>
+                <div className="text-4xl mb-3">📷</div>
 
                 <p className="font-semibold text-gray-700 mb-1">
                   Upload a photo of the problem
@@ -237,21 +205,16 @@ function ReportIssue() {
                     ✅ {image.name}
                   </p>
                 )}
-
               </div>
-
             </div>
-
 
             {/* Location */}
             <div className="mb-8">
-
               <label className="block text-gray-700 font-semibold mb-2">
                 Location
               </label>
 
               <div className="relative">
-
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                   📍
                 </span>
@@ -264,15 +227,12 @@ function ReportIssue() {
                   className="w-full border border-gray-200 bg-gray-50 rounded-xl pl-11 pr-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
                   required
                 />
-
               </div>
 
               <p className="text-sm text-gray-500 mt-2 ml-1">
                 Example: Near City Mall, Main Road
               </p>
-
             </div>
-
 
             {/* Submit */}
             <button
@@ -281,30 +241,19 @@ function ReportIssue() {
             >
               Submit Complaint →
             </button>
-
           </form>
-
         </div>
-
 
         {/* Bottom Info */}
         <div className="mt-6 bg-white/70 border border-blue-100 rounded-2xl p-5 text-center">
-
           <p className="text-sm text-gray-500">
-            💡 <span className="font-semibold text-gray-700">
-              Tip:
-            </span>{" "}
-            Add a clear description, correct location and a photo
-            whenever possible.
+            💡 <span className="font-semibold text-gray-700">Tip:</span> Add a
+            clear description, correct location and a photo whenever possible.
           </p>
-
         </div>
-
       </div>
-
     </div>
   );
 }
 
 export default ReportIssue;
-

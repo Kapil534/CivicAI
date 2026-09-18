@@ -17,16 +17,19 @@ function Login() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://civicai-7jnj.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
         },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
-      });
+      );
 
       const data = await response.json();
 
@@ -55,16 +58,10 @@ function Login() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center px-6 py-12">
-
       <div className="w-full max-w-md">
-
         {/* Brand */}
         <div className="text-center mb-7">
-
-          <Link
-            to="/"
-            className="inline-flex items-center gap-3"
-          >
+          <Link to="/" className="inline-flex items-center gap-3">
             <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl flex items-center justify-center text-2xl shadow-lg">
               🏙️
             </div>
@@ -79,30 +76,20 @@ function Login() {
               </p>
             </div>
           </Link>
-
         </div>
-
 
         {/* Login Card */}
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-9">
-
           {/* Heading */}
           <div className="text-center mb-8">
-
             <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
               🔐
             </div>
 
-            <h2 className="text-3xl font-bold text-gray-800">
-              Welcome Back
-            </h2>
+            <h2 className="text-3xl font-bold text-gray-800">Welcome Back</h2>
 
-            <p className="text-gray-500 mt-2">
-              Login to continue to CivicAI
-            </p>
-
+            <p className="text-gray-500 mt-2">Login to continue to CivicAI</p>
           </div>
-
 
           {/* Error */}
           {error && (
@@ -111,18 +98,14 @@ function Login() {
             </div>
           )}
 
-
           <form onSubmit={handleLogin}>
-
             {/* Email */}
             <div className="mb-5">
-
               <label className="block text-gray-700 font-semibold mb-2">
                 Email Address
               </label>
 
               <div className="relative">
-
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                   ✉️
                 </span>
@@ -135,21 +118,16 @@ function Login() {
                   className="w-full border border-gray-200 bg-gray-50 rounded-xl pl-11 pr-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
                   required
                 />
-
               </div>
-
             </div>
-
 
             {/* Password */}
             <div className="mb-7">
-
               <label className="block text-gray-700 font-semibold mb-2">
                 Password
               </label>
 
               <div className="relative">
-
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                   🔒
                 </span>
@@ -162,11 +140,8 @@ function Login() {
                   className="w-full border border-gray-200 bg-gray-50 rounded-xl pl-11 pr-4 py-3.5 outline-none focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition"
                   required
                 />
-
               </div>
-
             </div>
-
 
             {/* Login Button */}
             <button
@@ -176,48 +151,34 @@ function Login() {
             >
               {loading ? "Logging in..." : "Login to CivicAI →"}
             </button>
-
           </form>
-
 
           {/* Divider */}
           <div className="flex items-center gap-3 my-7">
-
             <div className="flex-1 h-px bg-gray-200"></div>
 
-            <span className="text-xs text-gray-400">
-              OR
-            </span>
+            <span className="text-xs text-gray-400">OR</span>
 
             <div className="flex-1 h-px bg-gray-200"></div>
-
           </div>
-
 
           {/* Signup */}
           <p className="text-center text-gray-500">
-
             Don't have an account?{" "}
-
             <Link
               to="/signup"
               className="text-blue-600 font-bold hover:text-indigo-700 hover:underline transition"
             >
               Create Account
             </Link>
-
           </p>
-
         </div>
-
 
         {/* Bottom Text */}
         <p className="text-center text-gray-400 text-sm mt-6">
           Together, let's build a better community. 🏙️
         </p>
-
       </div>
-
     </div>
   );
 }
